@@ -27,14 +27,9 @@ jobs:
       # 构建 Docker 镜像
       - name: Build Docker image
         run: |
-          docker build -t dujiangjiang1/flask-app:$GITHUB_SHA .
+          docker build -t dujiangjiang1/flask-app:latest
 
       # 推送 Docker 镜像到 Docker Hub
       - name: Push Docker image
         run: |
-          docker push dujiangjiang1/flask-app:$GITHUB_SHA
-
-      # 如果需要部署到 Azure 你可以添加相关步骤
-      # - name: Deploy to Azure
-      #   run: |
-      #     # Azure 部署相关命令
+          docker push dujiangjiang1/flask-app:latest
