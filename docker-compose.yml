@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  flask:
+    build: .
+    container_name: flask_app
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=myflaskdbserver.postgres.database.azure.com
+      - DB_NAME=myshopdb
+      - DB_USER=flaskadmin
+      - DB_PASS=Happytomelxy123
+    volumes:
+      - .:/app
+    networks:
+      - flask_network
+    restart: always
+
+networks:
+  flask_network:
+    driver: bridge
